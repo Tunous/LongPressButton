@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "xcapptest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Tunous/XCAppTest",
+      "state" : {
+        "branch" : "main",
+        "revision" : "01d1c57156bfb81791b50a18d2d606ebec176570"
+      }
+    }
+  ],
+  "version" : 2
+}

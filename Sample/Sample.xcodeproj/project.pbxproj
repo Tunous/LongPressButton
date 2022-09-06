@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00F7986528C7B2510039458B /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F7986428C7B2510039458B /* SampleApp.swift */; };
+		00F7986928C7B2520039458B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F7986828C7B2520039458B /* Assets.xcassets */; };
+		00F7986C28C7B2520039458B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F7986B28C7B2520039458B /* Preview Assets.xcassets */; };
+		00F7988028C7B2520039458B /* LongPressButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F7987F28C7B2520039458B /* LongPressButtonTests.swift */; };
+		00F7989428C7B2780039458B /* LongPressButton in Frameworks */ = {isa = PBXBuildFile; productRef = 00F7989328C7B2780039458B /* LongPressButton */; };
+		00F7989628C7B2AE0039458B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F7989528C7B2AD0039458B /* ContentView.swift */; };
+		00F7989928C7BFA70039458B /* XCAppTest in Frameworks */ = {isa = PBXBuildFile; productRef = 00F7989828C7BFA70039458B /* XCAppTest */; };
+		00F7989C28C7C01D0039458B /* ElementIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F7989B28C7C01D0039458B /* ElementIdentifier.swift */; };
+		00F7989D28C7C0560039458B /* ElementIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F7989B28C7C01D0039458B /* ElementIdentifier.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00F7987C28C7B2520039458B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F7985928C7B2510039458B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00F7986028C7B2510039458B;
+			remoteInfo = Sample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00C9094B28CC9485006341AF /* LongPressButton */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LongPressButton; path = ..; sourceTree = "<group>"; };
+		00F7986128C7B2510039458B /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00F7986428C7B2510039458B /* SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
+		00F7986828C7B2520039458B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00F7986B28C7B2520039458B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		00F7987B28C7B2520039458B /* SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00F7987F28C7B2520039458B /* LongPressButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressButtonTests.swift; sourceTree = "<group>"; };
+		00F7989528C7B2AD0039458B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		00F7989B28C7C01D0039458B /* ElementIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIdentifier.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00F7985E28C7B2510039458B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00F7989428C7B2780039458B /* LongPressButton in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00F7987828C7B2520039458B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00F7989928C7BFA70039458B /* XCAppTest in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00C9094A28CC9485006341AF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				00C9094B28CC9485006341AF /* LongPressButton */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		00F7985828C7B2510039458B = {
+			isa = PBXGroup;
+			children = (
+				00C9094A28CC9485006341AF /* Packages */,
+				00F7989A28C7C0100039458B /* SharedWithTests */,
+				00F7986328C7B2510039458B /* Sample */,
+				00F7987E28C7B2520039458B /* SampleUITests */,
+				00F7986228C7B2510039458B /* Products */,
+				00F7989228C7B2780039458B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		00F7986228C7B2510039458B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00F7986128C7B2510039458B /* Sample.app */,
+				00F7987B28C7B2520039458B /* SampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00F7986328C7B2510039458B /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				00F7989528C7B2AD0039458B /* ContentView.swift */,
+				00F7986428C7B2510039458B /* SampleApp.swift */,
+				00F7986828C7B2520039458B /* Assets.xcassets */,
+				00F7986A28C7B2520039458B /* Preview Content */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		00F7986A28C7B2520039458B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				00F7986B28C7B2520039458B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00F7987E28C7B2520039458B /* SampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				00F7987F28C7B2520039458B /* LongPressButtonTests.swift */,
+			);
+			path = SampleUITests;
+			sourceTree = "<group>";
+		};
+		00F7989228C7B2780039458B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		00F7989A28C7C0100039458B /* SharedWithTests */ = {
+			isa = PBXGroup;
+			children = (
+				00F7989B28C7C01D0039458B /* ElementIdentifier.swift */,
+			);
+			path = SharedWithTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00F7986028C7B2510039458B /* Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00F7988528C7B2520039458B /* Build configuration list for PBXNativeTarget "Sample" */;
+			buildPhases = (
+				00F7985D28C7B2510039458B /* Sources */,
+				00F7985E28C7B2510039458B /* Frameworks */,
+				00F7985F28C7B2510039458B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sample;
+			packageProductDependencies = (
+				00F7989328C7B2780039458B /* LongPressButton */,
+			);
+			productName = Sample;
+			productReference = 00F7986128C7B2510039458B /* Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00F7987A28C7B2520039458B /* SampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00F7988B28C7B2520039458B /* Build configuration list for PBXNativeTarget "SampleUITests" */;
+			buildPhases = (
+				00F7987728C7B2520039458B /* Sources */,
+				00F7987828C7B2520039458B /* Frameworks */,
+				00F7987928C7B2520039458B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00F7987D28C7B2520039458B /* PBXTargetDependency */,
+			);
+			name = SampleUITests;
+			packageProductDependencies = (
+				00F7989828C7BFA70039458B /* XCAppTest */,
+			);
+			productName = SampleUITests;
+			productReference = 00F7987B28C7B2520039458B /* SampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00F7985928C7B2510039458B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					00F7986028C7B2510039458B = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					00F7987A28C7B2520039458B = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 00F7986028C7B2510039458B;
+					};
+				};
+			};
+			buildConfigurationList = 00F7985C28C7B2510039458B /* Build configuration list for PBXProject "Sample" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00F7985828C7B2510039458B;
+			packageReferences = (
+				00F7989728C7BFA70039458B /* XCRemoteSwiftPackageReference "XCAppTest" */,
+			);
+			productRefGroup = 00F7986228C7B2510039458B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00F7986028C7B2510039458B /* Sample */,
+				00F7987A28C7B2520039458B /* SampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00F7985F28C7B2510039458B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00F7986C28C7B2520039458B /* Preview Assets.xcassets in Resources */,
+				00F7986928C7B2520039458B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00F7987928C7B2520039458B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00F7985D28C7B2510039458B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00F7986528C7B2510039458B /* SampleApp.swift in Sources */,
+				00F7989628C7B2AE0039458B /* ContentView.swift in Sources */,
+				00F7989C28C7C01D0039458B /* ElementIdentifier.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00F7987728C7B2520039458B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00F7988028C7B2520039458B /* LongPressButtonTests.swift in Sources */,
+				00F7989D28C7C0560039458B /* ElementIdentifier.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00F7987D28C7B2520039458B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00F7986028C7B2510039458B /* Sample */;
+			targetProxy = 00F7987C28C7B2520039458B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00F7988328C7B2520039458B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00F7988428C7B2520039458B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00F7988628C7B2520039458B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sample/Preview Content\"";
+				DEVELOPMENT_TEAM = 35X2XDKBD7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LongPressButton.Sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00F7988728C7B2520039458B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sample/Preview Content\"";
+				DEVELOPMENT_TEAM = 35X2XDKBD7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LongPressButton.Sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		00F7988C28C7B2520039458B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35X2XDKBD7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LongPressButton.SampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sample;
+			};
+			name = Debug;
+		};
+		00F7988D28C7B2520039458B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35X2XDKBD7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LongPressButton.SampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00F7985C28C7B2510039458B /* Build configuration list for PBXProject "Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00F7988328C7B2520039458B /* Debug */,
+				00F7988428C7B2520039458B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00F7988528C7B2520039458B /* Build configuration list for PBXNativeTarget "Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00F7988628C7B2520039458B /* Debug */,
+				00F7988728C7B2520039458B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00F7988B28C7B2520039458B /* Build configuration list for PBXNativeTarget "SampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00F7988C28C7B2520039458B /* Debug */,
+				00F7988D28C7B2520039458B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00F7989728C7BFA70039458B /* XCRemoteSwiftPackageReference "XCAppTest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Tunous/XCAppTest";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00F7989328C7B2780039458B /* LongPressButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LongPressButton;
+		};
+		00F7989828C7BFA70039458B /* XCAppTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00F7989728C7BFA70039458B /* XCRemoteSwiftPackageReference "XCAppTest" */;
+			productName = XCAppTest;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 00F7985928C7B2510039458B /* Project object */;
+}
