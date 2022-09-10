@@ -6,13 +6,13 @@ A SwiftUI button that initiates action on tap or long press.
 
 ## Usage
 
-Create `LongPressButton` similar to how you would create a regular `Button` passing it a title and action to perform on long press. You can also optionally pass an action for regular tap.
+Create `LongPressButton` similar to how you would create a regular `Button` passing it a title, action to perform on tap and an action to perform on long press.
 
 ```swift
 LongPressButton("Tap or long press me") { 
-    // Long pressed
-} action: { 
     // Tapped
+} longPressAction: { 
+    // Long pressed
 }
 ```
 
@@ -20,14 +20,13 @@ Additionally you can configure minimum long press duration, maximum finger trave
 
 ```swift
 LongPressButton(minimumDuration: 0.5, maximumDistance: 10) { 
-    // Long pressed
-} action: { 
     // Tapped
+} longPressAction: { 
+    // Long pressed
 } label: {
     Image(systemName: "plus")
 }
 ```
-
 
 ## Installation
 
@@ -36,7 +35,7 @@ LongPressButton(minimumDuration: 0.5, maximumDistance: 10) {
 Add the following to the dependencies array in your "Package.swift" file:
 
 ```swift
-.package(url: "https://github.com/Tunous/LongPressButton.git", .upToNextMajor(from: "1.0.0"))
+.package(url: "https://github.com/Tunous/LongPressButton.git", .upToNextMajor(from: "1.1.0"))
 ```
 
 Or add [https://github.com/Tunous/LongPressButton.git](https://github.com/Tunous/LongPressButton.git), to the list of Swift packages for any project in Xcode.

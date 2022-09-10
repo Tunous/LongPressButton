@@ -20,9 +20,9 @@ struct ContentView: View {
             configuration
 
             LongPressButton("Tap or long press me", minimumDuration: minimumDuration, maximumDistance: maximumDistance) {
-                longPressCount += 1
-            } action: {
                 tapCount += 1
+            } longPressAction: {
+                longPressCount += 1
             }
             .buttonStyle(.bordered)
             .accessibilityIdentifier(.longPressButton)

@@ -49,6 +49,8 @@ public struct LongPressButton<Label: View>: View {
     }
 }
 
+// MARK: - Initialization
+
 extension LongPressButton {
 
     /// Creates a long press button that displays a custom label.
@@ -57,20 +59,20 @@ extension LongPressButton {
     ///   - minimumDuration: The minimum duration of the long press that must elapse before the gesture succeeds.
     ///   - maximumDistance: The maximum distance that the fingers or cursor performing the long press can move before
     ///     the gesture fails.
-    ///   - longPressAction: The action to perform when the user long presses the button.
     ///   - action: The action to perform when the user taps the button.
+    ///   - longPressAction: The action to perform when the user long presses the button.
     ///   - label: A view that describes the purpose of the button’s action.
     public init(
         minimumDuration: TimeInterval = 0.5,
         maximumDistance: CGFloat = 10,
+        action: @escaping () -> Void,
         longPressAction: @escaping () -> Void,
-        action: (() -> Void)? = nil,
         @ViewBuilder label: () -> Label
     ) {
         self.minimumDuration = minimumDuration
         self.maximumDistance = maximumDistance
-        self.longPressAction = longPressAction
         self.action = action
+        self.longPressAction = longPressAction
         self.label = label()
     }
 
@@ -81,20 +83,20 @@ extension LongPressButton {
     ///   - minimumDuration: The minimum duration of the long press that must elapse before the gesture succeeds.
     ///   - maximumDistance: The maximum distance that the fingers or cursor performing the long press can move before
     ///     the gesture fails.
-    ///   - longPressAction: The action to perform when the user long presses the button.
     ///   - action: The action to perform when the user taps the button.
+    ///   - longPressAction: The action to perform when the user long presses the button.
     public init(
         _ titleKey: LocalizedStringKey,
         minimumDuration: TimeInterval = 0.5,
         maximumDistance: CGFloat = 10,
-        longPressAction: @escaping () -> Void,
-        action: (() -> Void)? = nil
+        action: @escaping () -> Void,
+        longPressAction: @escaping () -> Void
     ) where Label == Text {
         self.init(
             minimumDuration: minimumDuration,
             maximumDistance: maximumDistance,
-            longPressAction: longPressAction,
-            action: action
+            action: action,
+            longPressAction: longPressAction
         ) {
             Text(titleKey)
         }
@@ -107,20 +109,20 @@ extension LongPressButton {
     ///   - minimumDuration: The minimum duration of the long press that must elapse before the gesture succeeds.
     ///   - maximumDistance: The maximum distance that the fingers or cursor performing the long press can move before
     ///     the gesture fails.
-    ///   - longPressAction: The action to perform when the user long presses the button.
     ///   - action: The action to perform when the user taps the button.
+    ///   - longPressAction: The action to perform when the user long presses the button.
     public init<S: StringProtocol>(
         _ title: S,
         minimumDuration: TimeInterval = 0.5,
         maximumDistance: CGFloat = 10,
-        longPressAction: @escaping () -> Void,
-        action: (() -> Void)? = nil
+        action: @escaping () -> Void,
+        longPressAction: @escaping () -> Void
     ) where Label == Text {
         self.init(
             minimumDuration: minimumDuration,
             maximumDistance: maximumDistance,
-            longPressAction: longPressAction,
-            action: action
+            action: action,
+            longPressAction: longPressAction
         ) {
             Text(title)
         }
