@@ -50,7 +50,7 @@ jobs:
       - name: Prepare simulator
         run: |
           sudo xcodebuild -license accept || echo "License already accepted"
-          xcrun simctl create "${{ matrix.config.device }}" com.apple.CoreSimulator.SimDeviceType.iPhone-${{ matrix.config.device-number }} com.apple.CoreSimulator.SimRuntime.iOS-${{ matrix.config.version-code }} || echo "Simulator already exists"
+          xcrun simctl create "iPhone ${{ matrix.config.device-number }}" com.apple.CoreSimulator.SimDeviceType.iPhone-${{ matrix.config.device-number }} com.apple.CoreSimulator.SimRuntime.iOS-${{ matrix.config.version-code }} || echo "Simulator already exists"
 
       - name: Run tests
         run: |
