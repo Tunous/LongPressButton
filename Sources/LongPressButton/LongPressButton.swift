@@ -56,7 +56,7 @@ extension LongPressButton {
         longPressActionName: Text? = nil,
         action: @escaping () -> Void,
         longPressAction: @escaping () -> Void,
-        @ViewBuilder label: () -> Label,
+        @ViewBuilder label: () -> Label
     ) {
         self.minimumDuration = minimumDuration
         self.maximumDistance = maximumDistance
@@ -82,14 +82,14 @@ extension LongPressButton {
         maximumDistance: CGFloat = 10,
         longPressActionName: LocalizedStringKey? = nil,
         action: @escaping () -> Void,
-        longPressAction: @escaping () -> Void,
+        longPressAction: @escaping () -> Void
     ) where Label == Text {
         self.init(
             minimumDuration: minimumDuration,
             maximumDistance: maximumDistance,
             longPressActionName: longPressActionName.map { Text($0) },
             action: action,
-            longPressAction: longPressAction,
+            longPressAction: longPressAction
         ) {
             Text(titleKey)
         }
@@ -111,14 +111,14 @@ extension LongPressButton {
         maximumDistance: CGFloat = 10,
         longPressActionName: S? = nil,
         action: @escaping () -> Void,
-        longPressAction: @escaping () -> Void,
+        longPressAction: @escaping () -> Void
     ) where Label == Text {
         self.init(
             minimumDuration: minimumDuration,
             maximumDistance: maximumDistance,
             longPressActionName: longPressActionName.map { Text($0) },
             action: action,
-            longPressAction: longPressAction,
+            longPressAction: longPressAction
         ) {
             Text(title)
         }
