@@ -9,29 +9,59 @@ on:
 jobs:
   ui-tests:
     name: UI tests (iOS ${{ matrix.config.version }})
-    runs-on: ${{ matrix.config.system }}
+    runs-on: macos-latest
     strategy:
       matrix:
         config:
           - version: '15.2'
+            versioncode: '15-2'
             device: 'iPhone 13'
-            system: macos-11
+            devicecode: 'iPhone-13'
           - version: '16.2'
+            versioncode: '16-2'
             device: 'iPhone 14'
-            system: macos-12
+            devicecode: 'iPhone-14'
           - version: '17.2'
+            versioncode: '17-2'
             device: 'iPhone 15'
-            system: macos-13
+            devicecode: 'iPhone-15'
           - version: '18.2'
+            versioncode: '18-2'
             device: 'iPhone 16'
-            system: macos-14
+            devicecode: 'iPhone-16'
           - version: '26.0'
+            versioncode: '26-0'
             device: 'iPhone 17'
-            system: macos-latest
+            devicecode: 'iPhone-17'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup xcodesorg/made/xcodes
+        run: |
+          brew install xcodesorg/made/xcodes
+          brew install aria2
+
+      - name: Check and Download iOS Runtime
+        id: check-runtime
+        run: |
+          echo "Runtimes before download"
+          available_runtimes="$(xcrun simctl list runtimes)"
+          echo "$available_runtimes"
+
+          if echo "$available_runtimes" | grep -q "^iOS ${{ matrix.config.version }}"; then
+            echo "iOS ${{ matrix.config.version }} runtime is already installed"
+          else
+            echo "iOS ${{ matrix.config.version }} runtime is not installed"
+            sudo xcodes runtimes install "iOS ${{ matrix.config.version }}"
+          fi
+
+      - name: Create iOS Simulators
+        run: |
+          sudo xcodebuild -license accept || echo "License already accepted"
+
+          xcrun simctl create "${{ matrix.config.device }}" com.apple.CoreSimulator.SimDeviceType.${{ matrix.config.devicecode }} com.apple.CoreSimulator.SimRuntime.${{ matrix.config.versioncode }} || echo "Simulator already exists"
 
       - name: Run tests
         run: |
