@@ -38,11 +38,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup xcodesorg/made/xcodes
-        run: |
-          brew install xcodesorg/made/xcodes
-          brew install aria2
-
       - name: Check and Download iOS Runtime
         id: check-runtime
         run: |
