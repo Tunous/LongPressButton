@@ -5,46 +5,26 @@ public struct LongPressButton<Label: View>: View {
     private let minimumDuration: TimeInterval
     private let maximumDistance: CGFloat
     private let longPressAction: () -> Void
-    private let action: (() -> Void)?
+    private let action: () -> Void
     private let label: Label
 
-    @State private var didLongPress = false
-    @State private var longPressTask: Task<Void, Never>?
-
     public var body: some View {
-        Button(action: performActionIfNeeded) {
+        Button(action: {}) {
             label
         }
-        .onLongPressGesture(
-            maximumDistance: maximumDistance,
-            perform: {},
-            onPressingChanged: handleLongPress(isPressing:)
-        )
+        .simultaneousGesture(longPress.exclusively(before: tap))
     }
 
-    private func performActionIfNeeded() {
-        longPressTask?.cancel()
-        if didLongPress {
-            didLongPress = false
-        } else {
-            action?()
-        }
-    }
-
-    private func handleLongPress(isPressing: Bool) {
-        longPressTask?.cancel()
-        guard isPressing else { return }
-        didLongPress = false
-        longPressTask = Task {
-            do {
-                try await Task.sleep(nanoseconds: UInt64(minimumDuration * 1_000_000_000))
-            } catch {
-                return
-            }
-            await MainActor.run {
-                didLongPress = true
+    private var longPress: some Gesture {
+        LongPressGesture(minimumDuration: minimumDuration, maximumDistance: maximumDistance)
+            .onEnded { _ in
                 longPressAction()
             }
+    }
+
+    private var tap: some Gesture {
+        TapGesture().onEnded {
+            action()
         }
     }
 }
