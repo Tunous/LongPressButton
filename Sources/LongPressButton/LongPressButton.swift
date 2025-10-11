@@ -9,17 +9,38 @@ public struct LongPressButton<Label: View>: View {
     private let label: Label
     private let longPressActionName: Text?
 
+    @available(iOS, obsoleted: 26.0)
+    @State private var didLongPress = false
+    @available(iOS, obsoleted: 26.0)
+    @State private var longPressTask: Task<Void, Never>?
+
     public var body: some View {
-        Button(action: {}) {
-            label
+        button
+            .accessibilityAction {
+                action()
+            }
+            .accessibilityAction(named: longPressActionName ?? Text("Alternative Action")) {
+                longPressAction()
+            }
+    }
+
+    @ViewBuilder
+    private var button: some View {
+        if #available(iOS 26.0, *) {
+            Button(action: {}) {
+                label
+            }
+            .simultaneousGesture(longPress.exclusively(before: tap))
+        } else {
+            Button(action: performActionIfNeeded) {
+                label
+            }
+            .onLongPressGesture(
+                maximumDistance: maximumDistance,
+                perform: {},
+                onPressingChanged: handleLongPress(isPressing:)
+            )
         }
-        .accessibilityAction {
-            action()
-        }
-        .accessibilityAction(named: longPressActionName ?? Text("Alternative Action")) {
-            longPressAction()
-        }
-        .simultaneousGesture(longPress.exclusively(before: tap))
     }
 
     private var longPress: some Gesture {
@@ -32,6 +53,34 @@ public struct LongPressButton<Label: View>: View {
     private var tap: some Gesture {
         TapGesture().onEnded {
             action()
+        }
+    }
+
+    @available(iOS, obsoleted: 26.0)
+    private func performActionIfNeeded() {
+        longPressTask?.cancel()
+        if didLongPress {
+            didLongPress = false
+        } else {
+            action()
+        }
+    }
+
+    @available(iOS, obsoleted: 26.0)
+    private func handleLongPress(isPressing: Bool) {
+        longPressTask?.cancel()
+        guard isPressing else { return }
+        didLongPress = false
+        longPressTask = Task {
+            do {
+                try await Task.sleep(nanoseconds: UInt64(minimumDuration * 1_000_000_000))
+            } catch {
+                return
+            }
+            await MainActor.run {
+                didLongPress = true
+                longPressAction()
+            }
         }
     }
 }
