@@ -7,14 +7,27 @@ on:
     branches: [ main ]
 
 jobs:
-  # test:
-  #   runs-on: macos-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - run: swift test
+  ui-tests:
+    name: UI tests (iOS ${{ matrix.ios.version }})
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        ios:
+          - version: '15.5'
+            device: 'iPhone 13'
+          - version: '16.4'
+            device: 'iPhone 14'
+          - version: '17.5'
+            device: 'iPhone 15'
+          - version: '18.6'
+            device: 'iPhone 16'
+          - version: '26.0'
+            device: 'iPhone 17'
 
-  lint:
-    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: norio-nomura/action-swiftlint@3.2.1
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: |
+          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "platform=iOS Simulator,OS=${{ matrix.ios.version }},name=${{ matrix.ios.device }}"
