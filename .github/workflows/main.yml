@@ -8,21 +8,26 @@ on:
 
 jobs:
   ui-tests:
-    name: UI tests (iOS ${{ matrix.ios.version }})
-    runs-on: macos-latest
+    name: UI tests (iOS ${{ matrix.config.version }})
+    runs-on: ${{ matrix.config.system }}
     strategy:
       matrix:
-        ios:
-          - version: '15.5'
+        config:
+          - version: '15.2'
             device: 'iPhone 13'
-          - version: '16.4'
+            system: macos-11
+          - version: '16.2'
             device: 'iPhone 14'
-          - version: '17.5'
+            system: macos-12
+          - version: '17.2'
             device: 'iPhone 15'
-          - version: '18.6'
+            system: macos-13
+          - version: '18.2'
             device: 'iPhone 16'
+            system: macos-14
           - version: '26.0'
             device: 'iPhone 17'
+            system: macos-latest
 
     steps:
       - name: Checkout
@@ -30,4 +35,4 @@ jobs:
 
       - name: Run tests
         run: |
-          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "platform=iOS Simulator,OS=${{ matrix.ios.version }},name=${{ matrix.ios.device }}"
+          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "platform=iOS Simulator,OS=${{ matrix.config.version }},name=${{ matrix.config.device }}"
