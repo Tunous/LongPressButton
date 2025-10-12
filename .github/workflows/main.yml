@@ -42,15 +42,20 @@ jobs:
           if echo "$available_runtimes" | grep -q "^iOS ${{ matrix.config.version }}"; then
             echo "iOS ${{ matrix.config.version }} runtime is available"
           else
-            echo "Installing iOS ${{ matrix.config.version }} runtime"
             sudo xcodes runtimes install "iOS ${{ matrix.config.version }}"
-            echo "Done"
           fi
 
       - name: Prepare simulator
         run: |
           sudo xcodebuild -license accept || echo "License already accepted"
-          xcrun simctl create "iPhone ${{ matrix.config.device-number }}" com.apple.CoreSimulator.SimDeviceType.iPhone-${{ matrix.config.device-number }} com.apple.CoreSimulator.SimRuntime.iOS-${{ matrix.config.version-code }} || echo "Simulator already exists"
+          matching_devices="$(xcrun simctl list devices "iOS ${{ matrix.config.version }}")"
+          echo "$matching_devices"
+          if echo "$matching_devices" | grep -q "iPhone ${{ matrix.config.device-number }}"; then
+            echo "iPhone ${{ matrix.config.device-number }} simulator is available"
+          else
+            echo "Creating iPhone ${{ matrix.config.device-number }} simulator"
+            xcrun simctl create "iPhone ${{ matrix.config.device-number }}" com.apple.CoreSimulator.SimDeviceType.iPhone-${{ matrix.config.device-number }} com.apple.CoreSimulator.SimRuntime.iOS-${{ matrix.config.version-code }}
+          fi
 
       - name: Run tests
         run: |
