@@ -37,7 +37,7 @@ jobs:
       - name: Prepare runtime
         id: check-runtime
         run: |
-          available_runtimes="$(xcrun simctl list runtimes)"
+          available_runtimes="$(xcrun simctl list runtimes available)"
           echo "$available_runtimes"
 
           if echo "$available_runtimes" | grep -q "^iOS ${{ matrix.config.version }}"; then
