@@ -14,21 +14,14 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - version: '15.5'
-            version-code: '15-5'
-            device-number: '13'
           - version: '16.4'
-            version-code: '16-4'
-            device-number: '14'
+            device: 'iPhone 14'
           - version: '17.5'
-            version-code: '17-5'
-            device-number: '15'
+            device: 'iPhone 15'
           - version: '18.6'
-            version-code: '18-6'
-            device-number: '16'
+            device: 'iPhone 16'
           - version: '26.0'
-            version-code: '26-0'
-            device-number: '17'
+            device: 'iPhone 17'
 
     steps:
       - name: Checkout
@@ -46,28 +39,6 @@ jobs:
             sudo xcodes runtimes install "iOS ${{ matrix.config.version }}"
           fi
 
-      - name: Create simulator
-        id: create-simulator
-        run: |
-          sudo xcodebuild -license accept || echo "License already accepted"
-          device_id="$(xcrun simctl create "iPhone ${{ matrix.config.device-number }}" com.apple.CoreSimulator.SimDeviceType.iPhone-${{ matrix.config.device-number }} com.apple.CoreSimulator.SimRuntime.iOS-${{ matrix.config.version-code }})"
-          echo "Created device with ID: $device_id"
-          echo "device_id=$device_id" >> $GITHUB_OUTPUT
-
-      - name: Boot simulator
-        run: |
-          device_id="${{ steps.create-simulator.outputs.device_id }}"
-          xcrun simctl boot "$device_id" || true
-          for i in {1..30}; do
-            state="$(xcrun simctl list devices "iOS ${{ matrix.config.version }}" | grep "$device_id" | sed -E 's/.*\(([^)]+)\).*/\1/')"
-            echo "Device state: $state"
-            if echo "$state" | grep -q "Booted"; then
-              break
-            fi
-            sleep 1
-          done
-
-
       - name: Run tests
         run: |
-          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "platform=iOS Simulator,id=${{ steps.create-simulator.outputs.device_id }}"
+          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "platform=iOS Simulator,OS=${{ matrix.config.version }},name=${{ matrix.config.device }}"
