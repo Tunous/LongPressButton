@@ -46,9 +46,28 @@ jobs:
             sudo xcodes runtimes install "iOS ${{ matrix.config.version }}"
           fi
 
-      - name: Run tests
+      - name: Create simulator
+        id: create-simulator
         run: |
           sudo xcodebuild -license accept || echo "License already accepted"
-          matching_devices="$(xcrun simctl list devices "iOS ${{ matrix.config.version }}")"
           device_id="$(xcrun simctl create "iPhone ${{ matrix.config.device-number }}" com.apple.CoreSimulator.SimDeviceType.iPhone-${{ matrix.config.device-number }} com.apple.CoreSimulator.SimRuntime.iOS-${{ matrix.config.version-code }})"
-          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "id=$device_id"
+          echo "Created device with ID: $device_id"
+          echo "device_id=$device_id" >> $GITHUB_OUTPUT
+
+      - name: Boot simulator
+        run: |
+          device_id="${{ steps.create-simulator.outputs.device_id }}"
+          xcrun simctl boot "$device_id" || true
+          for i in {1..30}; do
+            state="$(xcrun simctl list devices "$runtime_id" | grep "$device_id" | sed -E 's/.*\(([^)]+)\).*/\1/')"
+            echo "Device state: $state"
+            if echo "$state" | grep -q "Booted"; then
+              break
+            fi
+            sleep 1
+          done
+
+
+      - name: Run tests
+        run: |
+          xcodebuild test -project Sample/Sample.xcodeproj -scheme Sample -destination "platform=iOS Simulator,id=${{ steps.create-simulator.outputs.device_id }}"
