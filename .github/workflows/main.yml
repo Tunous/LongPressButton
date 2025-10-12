@@ -11,6 +11,7 @@ jobs:
     name: UI tests (iOS ${{ matrix.config.version }})
     runs-on: macos-latest
     strategy:
+      fail-fast: false
       matrix:
         config:
           - version: '15.5'
