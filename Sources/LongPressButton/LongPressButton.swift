@@ -77,10 +77,8 @@ public struct LongPressButton<Label: View>: View {
             } catch {
                 return
             }
-            await MainActor.run {
-                didLongPress = true
-                longPressAction()
-            }
+            didLongPress = true
+            longPressAction()
         }
     }
 }
