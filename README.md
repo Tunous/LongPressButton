@@ -42,4 +42,4 @@ Or add [https://github.com/Tunous/LongPressButton.git](https://github.com/Tunous
 
 ## Credits
 
-[Supporting Both Tap and Long Press on a Button in SwiftUI](https://steipete.com/posts/supporting-both-tap-and-longpress-on-button-in-swiftui/) by Peter Steinberger - Great article with few potential solution on how to create button with long press action. Unfortunately none of them worked correctly for my use case.
+[Supporting Both Tap and Long Press on a Button in SwiftUI](https://steipete.me/posts/2021/supporting-both-tap-and-longpress-on-button-in-swiftui) by Peter Steinberger - Great article with few potential solution on how to create button with long press action. Unfortunately none of them worked correctly for my use case.
