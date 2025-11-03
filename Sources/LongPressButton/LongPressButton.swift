@@ -9,76 +9,41 @@ public struct LongPressButton<Label: View>: View {
     private let label: Label
     private let longPressActionName: Text?
 
-    @available(iOS, obsoleted: 26.0)
     @State private var didLongPress = false
-    @available(iOS, obsoleted: 26.0)
-    @State private var longPressTask: Task<Void, Never>?
 
     public var body: some View {
-        button
-            .accessibilityAction {
-                action()
-            }
-            .accessibilityAction(named: longPressActionName ?? Text("Alternative Action")) {
-                longPressAction()
-            }
-    }
-
-    @ViewBuilder
-    private var button: some View {
-        if #available(iOS 26.0, *) {
-            Button(action: {}) {
-                label
-            }
-            .simultaneousGesture(longPress.exclusively(before: tap))
-        } else {
-            Button(action: performActionIfNeeded) {
-                label
-            }
-            .onLongPressGesture(
-                maximumDistance: maximumDistance,
-                perform: {},
-                onPressingChanged: handleLongPress(isPressing:)
-            )
+        Button(action: performActionIfNeeded) {
+            label
+        }
+        .simultaneousGesture(longPress.simultaneously(with: detectRelease))
+        .accessibilityAction(named: longPressActionName ?? Text("Alternative Action")) {
+            longPressAction()
         }
     }
 
     private var longPress: some Gesture {
         LongPressGesture(minimumDuration: minimumDuration, maximumDistance: maximumDistance)
             .onEnded { _ in
+                didLongPress = true
                 longPressAction()
             }
     }
 
-    private var tap: some Gesture {
-        TapGesture().onEnded {
-            action()
+    private var detectRelease: some Gesture {
+        DragGesture(minimumDistance: 0).onEnded { _ in
+            DispatchQueue.main.async {
+                // Mark long press as ended in next run loop to be sure that button action
+                // won't trigger together with it.
+                didLongPress = false
+            }
         }
     }
 
-    @available(iOS, obsoleted: 26.0)
     private func performActionIfNeeded() {
-        longPressTask?.cancel()
         if didLongPress {
             didLongPress = false
         } else {
             action()
-        }
-    }
-
-    @available(iOS, obsoleted: 26.0)
-    private func handleLongPress(isPressing: Bool) {
-        longPressTask?.cancel()
-        guard isPressing else { return }
-        didLongPress = false
-        longPressTask = Task {
-            do {
-                try await Task.sleep(nanoseconds: UInt64(minimumDuration * 1_000_000_000))
-            } catch {
-                return
-            }
-            didLongPress = true
-            longPressAction()
         }
     }
 }
