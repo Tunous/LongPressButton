@@ -28,6 +28,10 @@ LongPressButton(minimumDuration: 0.5, maximumDistance: 10) {
 }
 ```
 
+## Known limitations
+
+This package doesn't work with default buttons that are used inside of Lists. If you want to use this inside of a List apply a different style to the button. For example `plain` or `bordered`.
+
 ## Installation
 
 ### Swift Package Manager

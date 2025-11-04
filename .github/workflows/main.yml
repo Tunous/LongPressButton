@@ -20,7 +20,7 @@ jobs:
             device: 'iPhone 15'
           - version: '18.6'
             device: 'iPhone 16'
-          - version: '26.0'
+          - version: '26.0.1'
             device: 'iPhone 17'
 
     steps:
