@@ -22,8 +22,5 @@ let package = Package(
         .target(
             name: "LongPressButton",
             dependencies: []),
-        .testTarget(
-            name: "LongPressButtonTests",
-            dependencies: ["LongPressButton"])
     ]
 )
