@@ -10,40 +10,49 @@ public struct LongPressButton<Label: View>: View {
     private let longPressActionName: Text?
 
     @State private var didLongPress = false
+    @State private var longPressTask: Task<Void, Never>?
 
     public var body: some View {
         Button(action: performActionIfNeeded) {
             label
         }
-        .simultaneousGesture(longPress.simultaneously(with: detectRelease))
-        .accessibilityAction(named: longPressActionName ?? Text("Alternative Action")) {
-            longPressAction()
+        .onLongPressGesture(
+            maximumDistance: maximumDistance,
+            perform: {},
+            onPressingChanged: handleLongPress(isPressing:)
+        )
+    }
+
+    private func performActionIfNeeded() {
+        longPressTask?.cancel()
+        if didLongPress {
+            didLongPress = false
+        } else {
+            action()
         }
     }
 
-    private var longPress: some Gesture {
-        LongPressGesture(minimumDuration: minimumDuration, maximumDistance: maximumDistance)
-            .onEnded { _ in
-                didLongPress = true
-                longPressAction()
-            }
-    }
+    private func handleLongPress(isPressing: Bool) {
+        longPressTask?.cancel()
 
-    private var detectRelease: some Gesture {
-        DragGesture(minimumDistance: 0).onEnded { _ in
+        if !isPressing {
             DispatchQueue.main.async {
                 // Mark long press as ended in next run loop to be sure that button action
                 // won't trigger together with it.
                 didLongPress = false
             }
+            return
         }
-    }
 
-    private func performActionIfNeeded() {
-        if didLongPress {
-            didLongPress = false
-        } else {
-            action()
+        didLongPress = false
+        longPressTask = Task {
+            do {
+                try await Task.sleep(nanoseconds: UInt64(minimumDuration * 1_000_000_000))
+            } catch {
+                return
+            }
+            didLongPress = true
+            longPressAction()
         }
     }
 }
