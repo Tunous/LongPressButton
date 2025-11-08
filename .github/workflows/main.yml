@@ -15,7 +15,7 @@ jobs:
       matrix:
         config:
           - version: '16.4'
-            device: 'iPhone 14'
+            device: 'iPhone 13'
           - version: '17.5'
             device: 'iPhone 15'
           - version: '18.6'
